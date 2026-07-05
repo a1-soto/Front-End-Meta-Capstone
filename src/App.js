@@ -9,10 +9,13 @@ import './App.css';
 function App() {
   return (
     <>
-    <Header />
-    <Nav />
-    <Main />
-    <Footer />
+      <div className="navbar">
+        <Header />
+        <Nav />
+      </div>
+
+      <Main />
+      <Footer />
     </>
   );
 }
