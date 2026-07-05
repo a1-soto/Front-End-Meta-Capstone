@@ -1,7 +1,10 @@
+import logo from '../assets/images/logo.jpg'
+
+
 function Footer() {
     return(
         <footer>
-        <img scr={require('../logo.svg')} alt="Little Lemon logo" />
+        <img src={logo} alt="Little Lemon logo" />
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
