@@ -10,8 +10,12 @@ function App() {
   return (
     <>
       <div className="navbar">
-        <Header />
-        <Nav />
+        <div className="container">
+          <Header />
+          <Nav />
+        </div>
+
+
       </div>
 
       <Main />
