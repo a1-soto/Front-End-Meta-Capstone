@@ -1,5 +1,5 @@
 function Nav() {
-    return(
+    return (
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
