@@ -1,0 +1,61 @@
+
+/* ===========================
+   SPECIALS
+=========================== */
+
+.specials {
+  padding: 5rem 0;
+  background-color: var(--highlight-light);
+}
+
+.specials .container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+
+/* ===== HEADER ===== */
+
+.specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specials-header h2 {
+  margin: 0;
+}
+
+.specials-header button {
+  padding: .9rem 1.8rem;
+
+  background-color: var(--primary-yellow);
+  color: var(--highlight-dark);
+
+  border: none;
+  border-radius: 16px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+
+/* ===== HORIZONTAL SCROLL ===== */
+
+.specials-grid {
+  display: flex;
+  gap: 2rem;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: 1rem;
+
+  scroll-snap-type: x proximity;
+
+  scrollbar-gutter: stable;
+}
+
