@@ -9,19 +9,14 @@ export default function Card({ image, title, price, description }) {
         src={image}
         alt={title}
       />
-
       <div className="card-content">
         <div className="card-header">
           <h3>{title}</h3>
-
           <span>{price}</span>
         </div>
-
         <p>{description}</p>
-
         <button className="order-button">
           <span>Order a delivery</span>
-
           <MdDeliveryDining className="delivery-icon" />
         </button>
       </div>
