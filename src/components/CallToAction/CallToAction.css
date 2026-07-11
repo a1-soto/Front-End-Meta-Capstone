@@ -1,0 +1,121 @@
+/* ===========================
+   CALL TO ACTION
+=========================== */
+/* ===== HERO ===== */
+
+.hero {
+  background-color: var(--primary-green);
+}
+
+.hero .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 420px;
+  padding: 2rem 0;
+}
+
+/* ===== HERO TEXT ===== */
+
+.hero-text {
+  flex: 0 0 40%;
+}
+
+.hero-location {
+  margin-bottom: .75rem;
+
+  color: var(--primary-yellow);
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+
+  color: var(--primary-yellow);
+}
+
+.hero h2 {
+  margin: -.4rem 0 1.25rem;
+
+  color: var(--highlight-light);
+}
+
+.hero-text p:last-of-type {
+  margin-bottom: 2rem;
+
+  color: var(--highlight-light);
+}
+
+.hero button {
+  padding: .9rem 1.8rem;
+
+  background: var(--primary-yellow);
+  color: var(--highlight-dark);
+
+  border: none;
+  border-radius: 16px;
+
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+/* ===== HERO IMAGE ===== */
+
+.hero-image {
+  position: relative;
+
+  flex: 0 0 55%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* ===== FLOATING CARD ===== */
+
+.hero-card {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 200px;
+  padding: 1.25rem;
+  background-color: var(--secondary-peach);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+  z-index: 2;
+}
+
+.hero-card h3 {
+  margin: 0 0 .75rem;
+
+  color: var(--primary-green);
+
+  font-size: .85rem;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hero-card p {
+  margin: 0;
+
+  color: var(--highlight-dark);
+
+  line-height: 1.5;
+}
