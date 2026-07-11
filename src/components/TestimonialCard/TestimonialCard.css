@@ -1,0 +1,57 @@
+/* ===========================
+   TESTIMONIAL CARD
+=========================== */
+
+.testimonial-card {
+  padding: 1.75rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+/* ===== RATING ===== */
+.testimonial-rating {
+  color: var(--highlight-dark);
+  font-size: 1.1rem;
+  letter-spacing: .15rem;
+}
+
+/* ===== AUTHOR ===== */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  /* filter: grayscale(100%);  take out the color */
+}
+
+
+.testimonial-name {
+  margin: 0;
+  color: var(--highlight-dark);
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+
+/* ===== REVIEW ===== */
+
+.testimonial-review {
+  margin: 0;
+  color: var(--highlight-dark);
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 35ch;
+}

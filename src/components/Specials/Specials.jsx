@@ -57,10 +57,8 @@ export default function Specials() {
       <div className="container">
         <div className="specials-header">
           <h2>This week's specials!</h2>
-
           <button>Online Menu</button>
         </div>
-
         <div className="specials-grid">
           {specials.map((dish) => (
             <Card

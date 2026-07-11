@@ -7,6 +7,5 @@ function Header() {
             <img src={logo} alt="Little Lemon logo" />
         </header>
     );
-
 }
 export default Header;

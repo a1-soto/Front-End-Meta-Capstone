@@ -4,13 +4,13 @@ import CustomersSay from "../CustomersSay/CustomersSay";
 import Chicago from "../Chicago/Chicago";
 
 export default function Homepage() {
-  
-    return (
-      <>
+
+  return (
+    <>
       <CallToAction />
       <Specials />
-     <CustomersSay /> 
+      <CustomersSay />
       <Chicago />
     </>
-    );
+  );
 }
