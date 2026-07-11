@@ -1,7 +1,32 @@
 import "./CallToAction.css";
 import heroImage from "../../assets/images/hero-img.jpg";
 
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+
 export default function CallToAction() {
+  const heroImageRef = useRef(null);
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        heroImageRef.current,
+        {
+          opacity: 0,
+          scale: 1.1
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.8,
+          ease: "power3.out"
+        }
+      );
+    });
+
+    return () => ctx.revert();
+
+  }, []);
+
   return (
     <section className="hero">
       <div className="container">
@@ -17,6 +42,7 @@ export default function CallToAction() {
 
         <div className="hero-image">
           <img
+            ref={heroImageRef}
             src={heroImage}
             alt="Chef holding a tray of bruschetta"
           />
