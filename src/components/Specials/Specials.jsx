@@ -8,10 +8,11 @@ import seaBass from "../../assets/images/sea-bass.jpg";
 import lemonTart from "../../assets/images/lemon-tart.jpg";
 import baklava from "../../assets/images/baklava.jpg";
 
-
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Carousel from "../Carousel/Carousel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,27 +117,27 @@ export default function Specials() {
 
         </div>
 
+        <Carousel>
+          <div className="specials-grid">
 
-        <div className="specials-grid">
+            {specials.map((dish, index) => (
 
-          {specials.map((dish, index) => (
-
-            <Card
-              key={dish.id}
+              <Card
+                key={dish.id}
 
 
-              ref={(el) => (cardsRef.current[index] = el)}
+                ref={(el) => (cardsRef.current[index] = el)}
 
-              image={dish.image}
-              title={dish.title}
-              price={dish.price}
-              description={dish.description}
-            />
+                image={dish.image}
+                title={dish.title}
+                price={dish.price}
+                description={dish.description}
+              />
 
-          ))}
+            ))}
 
-        </div>
-
+          </div>
+        </Carousel>
       </div>
 
     </section>
