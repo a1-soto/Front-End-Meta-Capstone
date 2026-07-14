@@ -3,8 +3,15 @@ import "./Chicago.css";
 import restaurant1 from "../../assets/images/restaurant-view.jpg";
 import restaurant2 from "../../assets/images/restaurant.jpg";
 
-export default function Chicago() {
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
+
+
+export default function Chicago() {
   const values = [
     {
       title: "Fresh ingredients",
@@ -19,18 +26,53 @@ export default function Chicago() {
       text: "A contemporary approach to timeless Mediterranean flavors."
     }
   ];
+const sectionRef = useRef(null);
+const mainImageRef = useRef(null);
+const secondaryImageRef = useRef(null);
+
+  useLayoutEffect(() => {
+
+  const ctx = gsap.context(() => {
+
+    gsap.to(mainImageRef.current, {
+      y: -60,
+      ease: "none",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 85%",
+end: "bottom 20%",
+        scrub: 1.2,
+      },
+    });
+
+    gsap.to(secondaryImageRef.current, {
+      y: 100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+       start: "top 85%",
+end: "bottom 20%",
+        scrub: 1.2,
+      },
+    });
+
+  }, sectionRef);
+
+  return () => ctx.revert();
+
+}, []);
 
   return (
-    <section className="chicago">
+    <section className="chicago"  ref={sectionRef}>
       <div className="container chicago-container">
         <div className="chicago-images">
-          <img
+          <img ref={mainImageRef}
             src={restaurant1}
             alt="Little Lemon restaurant interior"
             className="chicago-image chicago-image-main"
           />
 
-          <img
+          <img ref={secondaryImageRef}
             src={restaurant2}
             alt="Little Lemon restaurant dining area"
             className="chicago-image chicago-image-secondary"

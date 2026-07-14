@@ -59,8 +59,7 @@
 
 .chicago-content h2 {
     margin: 0;
-   /*  color: var(--highlight-dark); */
-    color: var(--primary-yellow);
+       color: var(--primary-yellow);
 
 }
 
