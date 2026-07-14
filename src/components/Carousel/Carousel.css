@@ -1,0 +1,114 @@
+.carousel {
+  position: relative;
+}
+
+.carousel-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 1rem;
+  scrollbar-gutter: stable;
+}
+
+.carousel-gradient-left,
+.carousel-gradient-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity .3s ease;
+}
+
+.carousel-gradient-left {
+  left: 0;
+  background: linear-gradient(to right,
+      rgba(237, 239, 238, .70) 0%,
+      rgba(237, 239, 238, .60) 20%,
+      rgba(237, 239, 238, 0) 100%);
+
+}
+
+.carousel-gradient-right {
+  right: 0;
+  background: linear-gradient(to left,
+      rgba(237, 239, 238, .70) 0%,
+      rgba(237, 239, 238, .60) 20%,
+      rgba(237, 239, 238, 0) 100%);
+
+}
+
+
+.carousel-progress-lemon {
+  position: absolute;
+  top: -10px;
+
+  width: 20px;
+  height: 20px;
+  transition: left .12s linear;
+}
+
+/* ===== DRAG STATE ===== */
+
+.carousel-scroll {
+  cursor: grab;
+}
+
+.carousel-scroll.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.carousel-scroll.dragging * {
+  user-select: none;
+  pointer-events: none;
+}
+
+.carousel-scroll {
+  /* Firefox, IE / Edge legacy */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-scroll::-webkit-scrollbar {
+  /* Chrome, Safari, Edge (Chromium) */
+  display: none;
+  height: 0;
+}
+
+/* ===== BARRA DE PROGRESO CON LIMÓN ===== */
+
+.carousel-progress {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.carousel-progress-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: var(--highlight-dark);
+  border-radius: 4px;
+  background-color: rgba(51, 51, 51, 0.25);
+  cursor: pointer;
+}
+
+.carousel-progress-lemon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: grab;
+}
+
+.carousel-progress-lemon.dragging {
+  cursor: grabbing;
+}
+
+.carousel-progress-lemon img {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}

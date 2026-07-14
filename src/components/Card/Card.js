@@ -18,6 +18,7 @@ const Card = forwardRef(function Card(
       <img
         src={image}
         alt={title}
+        draggable={false}
       />
 
       <div className="card-content">

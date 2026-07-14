@@ -40,11 +40,6 @@
 /* ===== HORIZONTAL SCROLL ===== */
 
 .specials-grid {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 1rem;
-  scroll-snap-type: x proximity;
-  scrollbar-gutter: stable;
+  display: flex;  
+  gap: 2rem; 
 }

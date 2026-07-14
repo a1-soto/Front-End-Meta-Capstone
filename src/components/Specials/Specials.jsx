@@ -19,10 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Specials() {
 
   const specialsRef = useRef(null);
-
-  // Guarda todas las cards para que GSAP pueda animarlas
   const cardsRef = useRef([]);
-
   const specials = [
     {
       id: 1,
@@ -102,32 +99,22 @@ export default function Specials() {
 
   return (
     <section className="specials" ref={specialsRef}>
-
       <div className="container">
-
         <div className="specials-header">
-
           <h2>
             This week's specials!
           </h2>
-
           <button>
             Online Menu
           </button>
-
         </div>
 
         <Carousel>
           <div className="specials-grid">
-
             {specials.map((dish, index) => (
-
               <Card
                 key={dish.id}
-
-
                 ref={(el) => (cardsRef.current[index] = el)}
-
                 image={dish.image}
                 title={dish.title}
                 price={dish.price}
@@ -135,7 +122,6 @@ export default function Specials() {
               />
 
             ))}
-
           </div>
         </Carousel>
       </div>
