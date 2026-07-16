@@ -3,7 +3,6 @@ import "./Card.css";
 import { MdDeliveryDining } from "react-icons/md";
 import { forwardRef } from "react";
 
-
 const Card = forwardRef(function Card(
   { image, title, price, description },
   ref
@@ -13,6 +12,7 @@ const Card = forwardRef(function Card(
     <article
       className="card"
       ref={ref}
+      data-animate="true"
     >
 
       <img
@@ -30,9 +30,9 @@ const Card = forwardRef(function Card(
 
         <p>{description}</p>
 
-        <button className="order-button">
+        <button className="order-button" disabled aria-disabled="true">
           <span>Order a delivery</span>
-          <MdDeliveryDining className="delivery-icon" />
+          <MdDeliveryDining className="delivery-icon" aria-hidden="true" />
         </button>
 
       </div>

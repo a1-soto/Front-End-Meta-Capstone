@@ -120,6 +120,9 @@ export default function Carousel({ children }) {
     function handleMouseDown(e) {
         e.preventDefault();
 
+
+        scrollRef.current.focus();
+
         setIsDragging(true);
         isDraggingRef.current = true;
 
@@ -171,33 +174,41 @@ export default function Carousel({ children }) {
 
     function handleTrackClick(e) {
 
-        // Si el click fue directamente SOBRE el limón, no hacemos nada aquí:
-        // ese caso ya lo maneja handleLemonMouseDown (evita doble disparo).
         if (e.target.closest(".carousel-progress-lemon")) return;
 
         const maxScroll = getMaxScroll();
         const track = trackRef.current;
 
-
-        // Posición del click relativa al borde izquierdo del track (en px)
         const trackRect = track.getBoundingClientRect();
         const clickX = e.clientX - trackRect.left;
 
         const travel = getTrackTravel();
 
-        // Convierte la posición del click (ajustada por el radio del limón,
-        // igual que hacemos al DIBUJAR el limón) a un progreso 0-1
         const adjustedClickX = clickX - LEMON_SIZE / 2;
         const clampedX = Math.max(0, Math.min(travel, adjustedClickX));
         const progress = travel > 0 ? clampedX / travel : 0;
 
-        // Progreso 0-1 → posición real de scroll
         const newTarget = progress * maxScroll;
 
         targetScroll.current = newTarget;
         startEasingLoop();
-
     }
+
+    function handleKeyDown(e) {
+        const maxScroll = getMaxScroll();
+        const step = 300;
+
+        if (e.key === "ArrowRight") {
+            e.preventDefault();
+            targetScroll.current = Math.min(maxScroll, targetScroll.current + step);
+            startEasingLoop();
+        } else if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            targetScroll.current = Math.max(0, targetScroll.current - step);
+            startEasingLoop();
+        }
+    }
+
     useEffect(() => {
 
         if (!isLemonDragging) return;
@@ -242,6 +253,11 @@ export default function Carousel({ children }) {
             <div
                 className={`carousel-scroll ${isDragging ? "dragging" : ""}`}
                 ref={scrollRef}
+                tabIndex={0}
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="This week's specials"
+                onKeyDown={handleKeyDown}
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
@@ -258,7 +274,7 @@ export default function Carousel({ children }) {
 
             {showRight && <div className="carousel-gradient-right" />}
 
-            <div className="carousel-progress">
+            <div className="carousel-progress" aria-hidden="true">
                 <div className="carousel-progress-track" ref={trackRef} onClick={handleTrackClick}>
                     <div
                         className={`carousel-progress-lemon ${isLemonDragging ? "dragging" : ""}`}
