@@ -2,6 +2,11 @@ header {
   padding: 0;
 }
 
+header a {
+  display: inline-block;
+  line-height: 0;
+}
+
 header img {
   height: 40px;
   width: auto;
