@@ -3,13 +3,8 @@ import "./Chicago.css";
 import restaurant1 from "../../assets/images/restaurant-view.jpg";
 import restaurant2 from "../../assets/images/restaurant.jpg";
 
-import { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-
+import { useRef } from "react";
+import { useGsapMatchMedia } from "../../hooks/useGsapMatchMedia";
 
 export default function Chicago() {
   const values = [
@@ -26,65 +21,68 @@ export default function Chicago() {
       text: "A contemporary approach to timeless Mediterranean flavors."
     }
   ];
-const sectionRef = useRef(null);
-const mainImageRef = useRef(null);
-const secondaryImageRef = useRef(null);
 
-  useLayoutEffect(() => {
+  const sectionRef = useRef(null);
+  const mainImageRef = useRef(null);
+  const secondaryImageRef = useRef(null);
 
-  const ctx = gsap.context(() => {
+  useGsapMatchMedia(
+    sectionRef,
+    (gsap, ScrollTrigger) => {
+      const breakpoint = gsap.matchMedia();
 
-    gsap.to(mainImageRef.current, {
-      y: -60,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 85%",
-end: "bottom 20%",
-        scrub: 1.2,
-      },
-    });
+      breakpoint.add("(min-width: 769px)", () => {
+        gsap.to(mainImageRef.current, {
+          y: -60,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "bottom 20%",
+            scrub: 1.2,
+          },
+        });
 
-    gsap.to(secondaryImageRef.current, {
-      y: 100,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-       start: "top 85%",
-end: "bottom 20%",
-        scrub: 1.2,
-      },
-    });
+        gsap.to(secondaryImageRef.current, {
+          y: 100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 85%",
+            end: "bottom 20%",
+            scrub: 1.2,
+          },
+        });
+      });
 
-  }, sectionRef);
-
-  return () => ctx.revert();
-
-}, []);
+      breakpoint.add("(max-width: 768px)", () => {
+        gsap.set([mainImageRef.current, secondaryImageRef.current], { y: 0 });
+      });
+    },
+    []
+  );
 
   return (
-    <section className="chicago"  ref={sectionRef}>
+    <section className="chicago" ref={sectionRef} data-animate="true">
       <div className="container chicago-container">
         <div className="chicago-images">
-          <img ref={mainImageRef}
+          <img
+            ref={mainImageRef}
             src={restaurant1}
             alt="Little Lemon restaurant interior"
             className="chicago-image chicago-image-main"
           />
 
-          <img ref={secondaryImageRef}
+          <img
+            ref={secondaryImageRef}
             src={restaurant2}
             alt="Little Lemon restaurant dining area"
             className="chicago-image chicago-image-secondary"
           />
         </div>
         <div className="chicago-content">
-          <p className="section-label">
-            ABOUT LITTLE LEMON
-          </p>
-          <h2>
-            Mediterranean roots, Modern experience.
-          </h2>
+          <p className="section-label">ABOUT LITTLE LEMON</p>
+          <h2>Mediterranean roots, Modern experience.</h2>
           <p className="chicago-description">
             We bring Mediterranean cuisine to life through fresh ingredients,
             authentic recipes, and a welcoming atmosphere.
@@ -96,16 +94,9 @@ end: "bottom 20%",
 
           <div className="chicago-values">
             {values.map((value) => (
-              <article
-                key={value.title}
-                className="chicago-value"
-              >
-                <h3>
-                  {value.title}
-                </h3>
-                <p>
-                  {value.text}
-                </p>
+              <article key={value.title} className="chicago-value">
+                <h3>{value.title}</h3>
+                <p>{value.text}</p>
               </article>
             ))}
           </div>
