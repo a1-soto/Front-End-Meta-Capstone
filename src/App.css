@@ -108,3 +108,8 @@ img {
   min-height: 60px;
   padding: 1rem 0;
 }
+
+:focus-visible {
+  outline: 3px solid var(--primary-yellow);
+  outline-offset: 2px;
+}
