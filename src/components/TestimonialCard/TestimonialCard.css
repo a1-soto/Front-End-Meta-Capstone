@@ -9,6 +9,7 @@
   flex-direction: column;
   gap: 1.25rem;
   height: 100%;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 /* ===== RATING ===== */
@@ -25,7 +26,6 @@
   gap: 1rem;
 }
 
-
 .testimonial-avatar {
   width: 56px;
   height: 56px;
@@ -35,7 +35,6 @@
   /* filter: grayscale(100%);  take out the color */
 }
 
-
 .testimonial-name {
   margin: 0;
   color: var(--highlight-dark);
@@ -43,7 +42,6 @@
   font-size: 1rem;
   font-weight: 700;
 }
-
 
 /* ===== REVIEW ===== */
 

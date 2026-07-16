@@ -8,6 +8,9 @@ import customer4 from "../../assets/images/customer-04.jpg";
 import customer5 from "../../assets/images/customer-05.jpg";
 import customer6 from "../../assets/images/customer-06.jpg";
 
+import { useRef } from "react";
+import { useGsapMatchMedia } from "../../hooks/useGsapMatchMedia";
+
 export default function CustomersSay() {
   const testimonials = [
     {
@@ -60,17 +63,43 @@ export default function CustomersSay() {
     },
   ];
 
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useGsapMatchMedia(
+    sectionRef,
+    (gsap, ScrollTrigger) => {
+      gsap.fromTo(
+        cardsRef.current,
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        }
+      );
+    },
+    []
+  );
+
   return (
-    <section className="customers-say">
+    <section className="customers-say" ref={sectionRef} data-animate="true">
       <div className="container">
         <div className="customers-say-header">
           <h2>Table conversations</h2>
         </div>
 
         <div className="testimonials-grid">
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={testimonial.id}
+              ref={(el) => (cardsRef.current[index] = el)}
               image={testimonial.image}
               rating={testimonial.rating}
               review={testimonial.review}
