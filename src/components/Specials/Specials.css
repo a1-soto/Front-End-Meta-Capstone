@@ -14,7 +14,6 @@
 }
 
 /* ===== HEADER ===== */
-
 .specials-header {
   display: flex;
   justify-content: space-between;
@@ -36,10 +35,21 @@
   transition: .25s ease;
 }
 
+.specials-header button:not(:disabled):hover,
+.specials-header button:not(:disabled):focus-visible {
+  background-color: var(--highlight-dark);
+  color: var(--highlight-light);
+}
+
+/* NUEVO */
+.specials-header button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
 /* ===== HORIZONTAL SCROLL ===== */
 
 .specials-grid {
-  display: flex;  
-  gap: 2rem; 
+  display: flex;
+  gap: 2rem;
 }
