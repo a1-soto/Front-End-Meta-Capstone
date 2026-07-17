@@ -15,14 +15,41 @@ footer {
   gap: 3rem;
 }
 
-footer img {
+.footer-brand img {
   height: 80px;
   width: auto;
 }
 
-footer .footer-content>a {
-  display: inline-block;
-  line-height: 0;
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.footer-column h3 {
+  position: relative;
+  display: inline-block; /* CAMBIADO: antes era block (ancho completo del contenedor);
+                             inline-block hace que el ancho real sea el del propio texto */
+  margin: 0;
+  padding-bottom: .5rem;
+  color: var(--primary-yellow);
+  font-family: "Karla", sans-serif;
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+}
+
+.footer-column h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* CAMBIADO: 100% del ancho del h3, que ahora es el ancho del texto
+                  (gracias a inline-block), en vez de un valor fijo en px */
+  height: 1px; /* CAMBIADO: de 2px a 1px, más fina */
+  background-color: var(--primary-yellow);
 }
 
 footer ul {
@@ -41,27 +68,110 @@ footer address {
   font-style: normal;
 }
 
+footer address p {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0;
+  color: var(--highlight-light);
+  font-weight: 400;
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--primary-yellow);
+}
+
 .footer-social {
   display: flex;
   flex-direction: column;
   gap: .75rem;
 }
 
-footer p {
-  margin: 0;
-}
-
-footer a {
+footer a,
+.footer-share-button {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
   color: var(--highlight-light);
   text-decoration: none;
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
   transition: color .25s ease, transform .1s ease;
 }
 
-footer a:hover,
-footer a:focus-visible {
+footer nav a {
+  font-weight: 400;
+}
+
+.footer-share-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--highlight-light);
+  transition: transform .2s ease, color .2s ease;
+}
+
+.footer-social a:hover .social-icon,
+.footer-social a:focus-visible .social-icon,
+.footer-share-button:hover .social-icon,
+.footer-share-button:focus-visible .social-icon {
+  transform: scale(1.15);
   color: var(--primary-yellow);
 }
 
-footer a:active {
+footer a:hover,
+footer a:focus-visible,
+.footer-share-button:hover,
+.footer-share-button:focus-visible {
+  color: var(--primary-yellow);
+}
+
+footer a:active,
+.footer-share-button:active {
   transform: scale(0.96);
+}
+
+.footer-share-button .share-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.footer-bottom {
+   background-color: var(--primary-green);
+  padding: 1.25rem 0;
+   border-top: 0.5px solid var(--primary-yellow)
+}
+
+.footer-bottom .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--highlight-light);
+  font-size: .8rem;
+  font-weight: 400;
+  opacity: 0.85;
 }
