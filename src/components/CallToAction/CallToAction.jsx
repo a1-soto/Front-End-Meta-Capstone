@@ -4,6 +4,8 @@ import heroImage from "../../assets/images/hero-img.jpg";
 import { useRef } from "react";
 import { useGsapMatchMedia } from "../../hooks/useGsapMatchMedia";
 
+import { Link } from "react-router-dom";
+
 export default function CallToAction() {
   const heroRef = useRef(null);
   const headlineRef = useRef(null);
@@ -66,9 +68,9 @@ export default function CallToAction() {
             traditional recipes served with a modern twist.
           </p>
 
-          <button ref={buttonRef} disabled aria-disabled="true">
+          <Link to="/reservations" className="cta-button" ref={buttonRef}>
             Reserve a Table
-          </button>
+          </Link>
         </div>
 
         <div className="hero-image">
