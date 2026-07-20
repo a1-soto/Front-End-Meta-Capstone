@@ -15,17 +15,26 @@ const Card = forwardRef(function Card(
       data-animate="true"
     >
 
-      <img
-        src={image}
-        alt={title}
-        draggable={false}
-      />
+      {/* NUEVO: wrapper con position:relative alrededor de la imagen,
+          necesario para anclar el badge de precio con position:absolute
+          respecto a la imagen (y no a toda la tarjeta) */}
+      <div className="card-image-wrapper">
+        <img
+          src={image}
+          alt={title}
+          draggable={false}
+        />
+
+        {/* CAMBIADO: el precio se movió aquí desde .card-header — ahora
+            es un badge superpuesto sobre la imagen, no texto junto al título */}
+        <span className="card-price-badge">{price}</span>
+      </div>
 
       <div className="card-content">
 
         <div className="card-header">
           <h3>{title}</h3>
-          <span>{price}</span>
+          {/* ELIMINADO: <span>{price}</span> — ya no vive aquí */}
         </div>
 
         <p>{description}</p>
