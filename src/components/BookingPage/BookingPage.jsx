@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'; 
 import BookingTabs from '../BookingTabs/BookingTabs';
 import BookingForm from '../BookingForm/BookingForm';
 import { submitAPI } from '../../Api/BookingAPI';
@@ -7,14 +8,20 @@ import restaurant1 from "../../assets/images/restaurant-view.jpg";
 const heroImage = restaurant1;
 
 function BookingPage({ availableTimes, dispatch }) {
+  const navigate = useNavigate(); 
 
   function handleDateChange(date) {
     dispatch({ type: 'date_changed', date });
   }
-
+ 
   function handleSubmit(formData) {
-    const result = submitAPI(formData);
-    return result;
+    const success = submitAPI(formData);
+
+    if (success) {
+         navigate('/booking-confirmed', { state: formData });
+    }
+
+    return success; 
   }
 
   return (

@@ -1,17 +1,25 @@
-// BookingForm.js
 import React, { useState } from 'react';
 import './BookingForm.css';
 
-function BookingForm({ availableTimes, onDateChange }) {
+function BookingForm({ availableTimes, onDateChange, onSubmitReservation }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
+  const [submitError, setSubmitError] = useState(''); 
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); 
+
+    const formData = { name, email, date, time, guests, occasion };
+
+    const success = onSubmitReservation(formData); 
+
+    if (!success) {
+      setSubmitError('We could not confirm your reservation. Please try again.');
+    }
   }
 
   return (
@@ -103,6 +111,12 @@ function BookingForm({ availableTimes, onDateChange }) {
           <option value="Anniversary">Anniversary</option>
         </select>
       </div>
+
+      {submitError && (
+        <p role="alert" className="booking-form-error">
+          {submitError}
+        </p>
+      )}
 
       <input
         type="submit"
