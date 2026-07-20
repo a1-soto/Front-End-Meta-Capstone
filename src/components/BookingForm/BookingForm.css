@@ -55,5 +55,6 @@
 }
 
 .booking-submit-btn:hover {
-  background:var(--primary-yellow);
+  background: var(--primary-green);
+  color: var(--highlight-light);
 }
