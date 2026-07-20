@@ -1,4 +1,3 @@
-import "./Main.css";
 import Homepage from "../Homepage/Homepage";
 import BookingPage from "../BookingPage/BookingPage";
 
