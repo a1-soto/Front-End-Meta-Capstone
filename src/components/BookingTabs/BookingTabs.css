@@ -1,0 +1,52 @@
+.booking-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--highlight-light);
+  padding: 0.4rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin: 2.5rem auto 2rem auto;
+}
+
+.booking-tab {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.15s ease;
+}
+
+.booking-tab--active {
+  background: var(--primary-green);
+  color: #ffffff;
+}
+
+.booking-tab--disabled {
+  background: transparent;
+  color: var(--primary-green);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.booking-tab--active:hover,
+.booking-tab--active:focus-visible {
+  background: #3d4d47;
+}
+
+.booking-tab-badge {
+  background: var(--primary-yellow);
+  color: var(--highlight-dark);
+  font-size: 0.65rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
