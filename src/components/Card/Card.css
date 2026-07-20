@@ -5,7 +5,7 @@
 .card {
   flex: 0 0 480px;
   scroll-snap-align: start;
-  background-color: var(--highlight-light);
+   background-color:var(--highlight-light) ;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .08);

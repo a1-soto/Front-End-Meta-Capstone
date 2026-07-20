@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
 
-function BookingForm({ availableTimes }) {
+function BookingForm({ availableTimes, onDateChange }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
@@ -10,9 +10,9 @@ function BookingForm({ availableTimes }) {
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
 
-function handleSubmit(event) {
-   event.preventDefault();
-}
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
 
   return (
     <form className="booking-form" aria-labelledby="booking-form-heading" onSubmit={handleSubmit}>
@@ -30,7 +30,7 @@ function handleSubmit(event) {
           placeholder="Enter your full name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-           required
+          required
         />
       </div>
 
@@ -42,7 +42,7 @@ function handleSubmit(event) {
           placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-           required
+          required
         />
       </div>
 
@@ -52,8 +52,12 @@ function handleSubmit(event) {
           type="date"
           id="res-date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
-           required
+          onChange={(e) => {
+            const newDate = e.target.value;
+            setDate(newDate);
+            onDateChange(newDate);
+          }}
+          required
         />
       </div>
 
@@ -63,7 +67,7 @@ function handleSubmit(event) {
           id="res-time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
-           required
+          required
         >
           <option value="" disabled>Select a time</option>
           {availableTimes.map((t) => (
@@ -82,7 +86,7 @@ function handleSubmit(event) {
           max="10"
           value={guests}
           onChange={(e) => setGuests(Number(e.target.value))}
-           required
+          required
         />
       </div>
 
