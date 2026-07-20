@@ -1,12 +1,29 @@
-import "./BookingPage.css";
+import BookingTabs from '../BookingTabs/BookingTabs';
+import BookingForm from '../BookingForm/BookingForm';
+import './BookingPage.css';
 
-export default function BookingPage() {
+import restaurant1 from "../../assets/images/restaurant-view.jpg";
+
+const heroImage = restaurant1;
+
+function BookingPage() {
   return (
     <section className="booking-page">
-      <div className="container">
-        <h1>Reserve a Table</h1>
-        <p>The reservation form will be available soon.</p>
+      <div
+        className="booking-hero"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <div className="booking-hero-overlay">
+          <h1>Reservations</h1>
+          <p>Experience authentic Mediterranean hospitality at Little Lemon Chicago.</p>
+        </div>
       </div>
+
+      <BookingTabs />
+      <BookingForm />
+
     </section>
   );
 }
+
+export default BookingPage;
