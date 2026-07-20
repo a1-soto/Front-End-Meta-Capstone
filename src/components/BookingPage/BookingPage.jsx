@@ -6,7 +6,7 @@ import restaurant1 from "../../assets/images/restaurant-view.jpg";
 
 const heroImage = restaurant1;
 
-function BookingPage() {
+function BookingPage({availableTimes}) {
   return (
     <section className="booking-page">
       <div
@@ -20,7 +20,7 @@ function BookingPage() {
       </div>
 
       <BookingTabs />
-      <BookingForm />
+      <BookingForm availableTimes={availableTimes} />
 
     </section>
   );
