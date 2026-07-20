@@ -114,7 +114,5 @@
 }
 
 .carousel-scroll:focus-visible {
-  outline: 3px solid var(--primary-yellow);
-  outline-offset: 2px;
-  scroll-margin-block: 100px;
+  outline: none;
 }
