@@ -58,6 +58,11 @@ export default function Chicago() {
       breakpoint.add("(max-width: 768px)", () => {
         gsap.set([mainImageRef.current, secondaryImageRef.current], { y: 0 });
       });
+
+      const handleResize = () => ScrollTrigger.refresh();
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
     },
     []
   );
@@ -72,7 +77,6 @@ export default function Chicago() {
             alt="Little Lemon restaurant interior"
             className="chicago-image chicago-image-main"
           />
-
           <img
             ref={secondaryImageRef}
             src={restaurant2}
@@ -102,6 +106,6 @@ export default function Chicago() {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
