@@ -58,3 +58,8 @@
   background: var(--primary-green);
   color: var(--highlight-light);
 }
+.booking-form-error {
+  color: #b00020; 
+  font-size: 0.875rem;
+  margin: -0.5rem 0 0;
+}

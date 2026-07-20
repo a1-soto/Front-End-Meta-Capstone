@@ -1,5 +1,6 @@
 import Homepage from "../Homepage/Homepage";
 import BookingPage from "../BookingPage/BookingPage";
+import ConfirmedBooking from "../ConfirmedBooking/ConfirmedBooking";
 
 import { Routes, Route } from "react-router-dom";
 import { useReducer } from "react";
@@ -27,6 +28,7 @@ export default function Main() {
           path="/reservations"
           element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} />}
         />
+        <Route path="/booking-confirmed" element={<ConfirmedBooking />} /> {/* ← nueva ruta */}
       </Routes>
     </main>
   );
