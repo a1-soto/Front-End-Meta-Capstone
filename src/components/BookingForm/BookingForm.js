@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
 
-function BookingForm() {
+function BookingForm({ availableTimes }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
@@ -10,10 +10,12 @@ function BookingForm() {
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
 
-  const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+function handleSubmit(event) {
+   event.preventDefault();
+}
 
   return (
-    <form className="booking-form" aria-labelledby="booking-form-heading">
+    <form className="booking-form" aria-labelledby="booking-form-heading" onSubmit={handleSubmit}>
 
       <h2 id="booking-form-heading">Book Your Experience</h2>
       <p className="booking-form-subtitle">
@@ -28,6 +30,7 @@ function BookingForm() {
           placeholder="Enter your full name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+           required
         />
       </div>
 
@@ -39,6 +42,7 @@ function BookingForm() {
           placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+           required
         />
       </div>
 
@@ -49,6 +53,7 @@ function BookingForm() {
           id="res-date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
+           required
         />
       </div>
 
@@ -58,10 +63,12 @@ function BookingForm() {
           id="res-time"
           value={time}
           onChange={(e) => setTime(e.target.value)}
+           required
         >
           <option value="" disabled>Select a time</option>
           {availableTimes.map((t) => (
-            <option key={t} value={t}>{t}</option>
+            <option key={t} value={t}>{t}
+            </option>
           ))}
         </select>
       </div>
@@ -75,6 +82,7 @@ function BookingForm() {
           max="10"
           value={guests}
           onChange={(e) => setGuests(Number(e.target.value))}
+           required
         />
       </div>
 
