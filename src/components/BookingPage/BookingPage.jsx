@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom'; 
+import { useNavigate, useLocation } from 'react-router-dom';
 import BookingTabs from '../BookingTabs/BookingTabs';
 import BookingForm from '../BookingForm/BookingForm';
 import MyBookings from '../MyBookings/MyBookings';
 import { submitAPI } from '../../Api/BookingAPI';
-import { saveBooking, getBookings } from '../../utils/bookingStorage'; 
+import { saveBooking, getBookings } from '../../utils/bookingStorage';
 import './BookingPage.css';
 import restaurant1 from "../../assets/images/restaurant-view.jpg";
 
