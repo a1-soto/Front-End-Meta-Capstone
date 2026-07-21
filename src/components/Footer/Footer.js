@@ -45,9 +45,12 @@ function Footer() {
             try {
                 await navigator.share(shareData);
             } catch (error) {
+                if (error.name !== 'AbortError') {
+                    console.error('Error al compartir:', error);
+                }
             }
-        } else {
-            // Fallback: copiar la URL al portapapeles
+        }
+        else {
             await navigator.clipboard.writeText(shareData.url);
             setLinkCopied(true);
             setTimeout(() => setLinkCopied(false), 2000);
@@ -69,8 +72,8 @@ function Footer() {
                     <nav aria-label="Footer navigation">
                         <ul>
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About</Link></li>
-                            <li><Link to="/menu">Menu</Link></li>
+                            <li><Link to="/#about">About</Link></li>
+                            <li><Link to="/#menu">Menu</Link></li>
                             <li><Link to="/reservations">Reservations</Link></li>
                         </ul>
                     </nav>
@@ -105,7 +108,6 @@ function Footer() {
                             aria-label="Facebook (opens in a new tab)"
                         >
                             <FaFacebook aria-hidden="true" className="social-icon" />
-                            {/*   Facebook */}
                         </a>
 
                         <a
@@ -115,7 +117,7 @@ function Footer() {
                             aria-label="Instagram (opens in a new tab)"
                         >
                             <FaInstagram aria-hidden="true" className="social-icon" />
-                            {/*   Instagram */}
+
                         </a>
 
                         <button
