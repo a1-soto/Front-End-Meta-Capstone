@@ -1,30 +1,32 @@
-// BookingTabs.jsx
 import './BookingTabs.css';
 
-function BookingTabs() {
+function BookingTabs({ activeTab, onTabChange, bookingCount }) {
   return (
     <div className="booking-tabs" role="tablist" aria-label="Reservation views">
 
       <button
         type="button"
-        className="booking-tab booking-tab--active"
+        className={`booking-tab ${activeTab === 'book' ? 'booking-tab--active' : ''}`}
         role="tab"
-        aria-selected="true"
+        aria-selected={activeTab === 'book'}
+        onClick={() => onTabChange('book')}
       >
         Book a Table
       </button>
 
       <button
         type="button"
-        className="booking-tab booking-tab--disabled"
+        className={`booking-tab booking-tab--with-badge ${activeTab === 'mybookings' ? 'booking-tab--active' : ''}`}
         role="tab"
-        aria-selected="false"
-        disabled
-        aria-disabled="true"
-        title="Próximamente — requiere cuenta de usuario"
+        aria-selected={activeTab === 'mybookings'}
+        onClick={() => onTabChange('mybookings')}
       >
         My Bookings
-        <span className="booking-tab-badge" aria-hidden="true">•</span>
+        {bookingCount > 0 && (
+          <span className="booking-count-badge" aria-label={`${bookingCount} bookings saved`}>
+            {bookingCount}
+          </span>
+        )}
       </button>
 
     </div>
