@@ -1,17 +1,49 @@
 .booking-form {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
+}
+
+/* --- Header  --- */
+.booking-form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+
+.booking-form-icon {
+  font-size: 2rem;
+  color: var(--primary-green);
+  margin-bottom: 0.25rem;
+}
+
+.booking-form-header h2 {
+  margin: 0;
 }
 
 .booking-form-subtitle {
-  margin-top: -0.75rem;
+  margin: 0;
   color: var(--primary-green);
+}
+
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .form-field {
@@ -20,7 +52,14 @@
   gap: 0.4rem;
 }
 
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
 .form-field label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -28,19 +67,60 @@
   color: var(--highlight-dark);
 }
 
+.form-field label svg {
+  font-size: 1rem;
+  color: var(--primary-green);
+}
+
 .form-field input,
-.form-field select {
+.form-field select,
+.form-field textarea {
   padding: 0.75rem 1rem;
   border: 1px solid var(--highlight-light);
   border-radius: 20px;
   font-family: 'Karla', sans-serif;
   font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-field textarea {
+  border-radius: 12px;
+  resize: vertical;
+  font-family: 'Karla', sans-serif;
 }
 
 .form-field input:focus-visible,
-.form-field select:focus-visible {
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
   outline: 2px solid var(--primary-yellow);
   outline-offset: 2px;
+}
+
+.seating-options {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--highlight-light);
+  border-radius: 20px;
+}
+
+.seating-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--highlight-dark);
+  cursor: pointer;
+}
+
+.seating-option input[type="radio"] {
+  width: auto;
+  accent-color: var(--primary-green);
 }
 
 .booking-submit-btn {
@@ -58,8 +138,9 @@
   background: var(--primary-green);
   color: var(--highlight-light);
 }
+
 .booking-form-error {
-  color: #b00020; 
+  color: #b00020;
   font-size: 0.875rem;
   margin: -0.5rem 0 0;
 }
