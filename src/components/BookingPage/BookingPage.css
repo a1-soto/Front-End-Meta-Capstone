@@ -1,10 +1,11 @@
 .booking-page {
   padding-bottom: 4rem;
+  background: var(--highlight-light)
 }
 
 
 .booking-hero {
-   background-size: cover;
+  background-size: cover;
   background-position: center;
   width: 100vw;
   position: relative;
@@ -40,7 +41,7 @@
 }
 
 .booking-page .booking-hero-overlay p {
-  color:var(--highlight-light);
+  color: var(--highlight-light);
   text-align: center;
   font-size: larger;
   font-weight: bold;
