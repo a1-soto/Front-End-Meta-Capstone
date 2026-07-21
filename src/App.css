@@ -98,6 +98,9 @@ img {
 
 .navbar {
   background-color: var(--highlight-light);
+    box-shadow: 0 2px 8px rgba(73, 94, 87, 0.25); 
+  position: relative;  
+  z-index: 10
 }
 
 .navbar .container {
