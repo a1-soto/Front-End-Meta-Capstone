@@ -29,8 +29,7 @@ footer {
 
 .footer-column h3 {
   position: relative;
-  display: inline-block; /* CAMBIADO: antes era block (ancho completo del contenedor);
-                             inline-block hace que el ancho real sea el del propio texto */
+  display: inline-block;
   margin: 0;
   padding-bottom: .5rem;
   color: var(--primary-yellow);
@@ -46,9 +45,8 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%; /* CAMBIADO: 100% del ancho del h3, que ahora es el ancho del texto
-                  (gracias a inline-block), en vez de un valor fijo en px */
-  height: 1px; /* CAMBIADO: de 2px a 1px, más fina */
+  width: 100%;
+  height: 1px;
   background-color: var(--primary-yellow);
 }
 
@@ -155,9 +153,9 @@ footer a:active,
 }
 
 .footer-bottom {
-   background-color: var(--primary-green);
+  background-color: var(--primary-green);
   padding: 1.25rem 0;
-   border-top: 0.5px solid var(--primary-yellow)
+  border-top: 0.5px solid var(--primary-yellow)
 }
 
 .footer-bottom .container {
