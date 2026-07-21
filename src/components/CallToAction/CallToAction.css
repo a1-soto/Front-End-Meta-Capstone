@@ -46,14 +46,14 @@
 }
 
 .cta-button {
-  display: inline-block;      
+  display: inline-block;
   padding: .9rem 1.8rem;
   background: var(--primary-yellow);
   color: var(--highlight-dark);
   border: none;
   border-radius: 20px;
   font-weight: 700;
-  text-decoration: none;      
+  text-decoration: none;
   cursor: pointer;
   transition: .25s ease;
 }
@@ -92,7 +92,7 @@
   width: 200px;
   padding: 1.25rem;
   background-color: var(--secondary-peach);
-   border-radius: 20px;
+  border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
   z-index: 2;
 }

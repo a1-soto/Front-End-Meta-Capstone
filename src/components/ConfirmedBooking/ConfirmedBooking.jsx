@@ -78,7 +78,7 @@ function ConfirmedBooking() {
               </div>
 
               <div className="confirmation-actions">
-               
+
                 <button
                   type="button"
                   className="confirmation-btn confirmation-btn--primary"
