@@ -79,3 +79,8 @@ nav a:focus-visible::after {
   justify-content: center;
   line-height: 1;
 }
+
+.nav-link-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
