@@ -21,19 +21,19 @@ function ConfirmedBooking() {
     occasion = '',
   } = formData || {};
 
-   const formattedDate = date
+  const formattedDate = date
     ? new Date(`${date}T00:00:00`).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
     : 'Date not available';
 
   return (
     <section className="confirmed-booking">
       <div className="container">
 
-            <div className="confirmation-header">
+        <div className="confirmation-header">
           <div className="confirmation-check">
             <MdCheckCircle aria-hidden="true" />
           </div>
@@ -43,7 +43,7 @@ function ConfirmedBooking() {
 
         <div className="confirmation-grid">
 
-                 <div className="confirmation-card">
+          <div className="confirmation-card">
             <div className="confirmation-card-header">
               <h2>Your Table is Ready</h2>
             </div>
@@ -81,6 +81,13 @@ function ConfirmedBooking() {
                 <Link to="/menu" className="confirmation-btn confirmation-btn--primary">
                   View Menu
                 </Link>
+                <Link
+                  to="/reservations"
+                  state={{ tab: 'mybookings' }}
+                  className="confirmation-btn confirmation-btn--secondary"
+                >
+                  View My Bookings
+                </Link>
                 <Link to="/" className="confirmation-btn confirmation-btn--secondary">
                   Back to Home
                 </Link>
@@ -88,7 +95,7 @@ function ConfirmedBooking() {
             </div>
           </div>
 
-                   <div className="confirmation-next-steps">
+          <div className="confirmation-next-steps">
             <h2>
               <MdInfoOutline aria-hidden="true" /> What's Next?
             </h2>
@@ -119,7 +126,7 @@ function ConfirmedBooking() {
 
         </div>
 
-             <div className="confirmation-location-banner">
+        <div className="confirmation-location-banner">
           <div className="confirmation-location-text">
             <h2>Find Us Easily</h2>
             <p>123 Mediterranean Way, Chicago, IL</p>

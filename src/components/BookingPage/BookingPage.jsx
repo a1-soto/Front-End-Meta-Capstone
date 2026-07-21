@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom'; 
 import BookingTabs from '../BookingTabs/BookingTabs';
 import BookingForm from '../BookingForm/BookingForm';
 import MyBookings from '../MyBookings/MyBookings';
 import { submitAPI } from '../../Api/BookingAPI';
-import { saveBooking } from '../../utils/bookingStorage';
+import { saveBooking, getBookings } from '../../utils/bookingStorage'; 
 import './BookingPage.css';
 import restaurant1 from "../../assets/images/restaurant-view.jpg";
 
@@ -12,7 +12,8 @@ const heroImage = restaurant1;
 
 function BookingPage({ availableTimes, dispatch }) {
   const navigate = useNavigate();
-   const [activeTab, setActiveTab] = useState('book');
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(location.state?.tab || 'book');
 
   function handleDateChange(date) {
     dispatch({ type: 'date_changed', date });
@@ -22,12 +23,14 @@ function BookingPage({ availableTimes, dispatch }) {
     const success = submitAPI(formData);
 
     if (success) {
-      saveBooking(formData); 
+      saveBooking(formData);
       navigate('/booking-confirmed', { state: formData });
     }
 
     return success;
   }
+
+  const bookingCount = getBookings().length;
 
   return (
     <section className="booking-page">
@@ -38,7 +41,8 @@ function BookingPage({ availableTimes, dispatch }) {
         </div>
       </div>
 
-      <BookingTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      <BookingTabs activeTab={activeTab} onTabChange={setActiveTab} bookingCount={bookingCount} />
+
       {activeTab === 'book' ? (
         <BookingForm
           availableTimes={availableTimes}
