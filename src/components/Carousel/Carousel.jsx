@@ -281,7 +281,7 @@ export default function Carousel({ children }) {
                         style={{ left: `${lemonLeft}px` }}
                         onMouseDown={handleLemonMouseDown}
                     >
-                        {/*  🍋 */}   <img
+                        <img
                             src={lemon}
                             alt="Scroll position indicator"
                             draggable={false}
