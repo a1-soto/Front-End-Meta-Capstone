@@ -78,9 +78,17 @@ function ConfirmedBooking() {
               </div>
 
               <div className="confirmation-actions">
-                <Link to="/menu" className="confirmation-btn confirmation-btn--primary">
+               
+                <button
+                  type="button"
+                  className="confirmation-btn confirmation-btn--primary"
+                  disabled
+                  aria-disabled="true"
+                  title="Coming soon"
+                >
                   View Menu
-                </Link>
+                </button>
+
                 <Link
                   to="/reservations"
                   state={{ tab: 'mybookings' }}

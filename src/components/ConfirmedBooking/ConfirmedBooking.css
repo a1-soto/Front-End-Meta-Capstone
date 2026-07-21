@@ -141,6 +141,17 @@
   background-color: var(--primary-green);
   color: var(--highlight-light);
 }
+.confirmation-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.confirmation-btn:disabled:hover {
+  background-color: var(--primary-yellow); 
+  border-color: var(--primary-yellow);
+  color: var(--highlight-dark);
+}
+
 
 /* ===== Panel "What's Next" ===== */
 .confirmation-next-steps {
