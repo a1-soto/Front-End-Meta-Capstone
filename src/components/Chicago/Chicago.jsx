@@ -68,7 +68,7 @@ export default function Chicago() {
   );
 
   return (
-    <section className="chicago" ref={sectionRef} data-animate="true">
+    <section className="chicago" id="about" ref={sectionRef} data-animate="true">
       <div className="container chicago-container">
         <div className="chicago-images">
           <img

@@ -79,7 +79,7 @@ export default function Specials() {
   );
 
   return (
-    <section className="specials" ref={specialsRef}>
+    <section className="specials" id="menu" ref={specialsRef}>
       <div className="container">
         <div className="specials-header">
           <h2>This week's specials!</h2>
