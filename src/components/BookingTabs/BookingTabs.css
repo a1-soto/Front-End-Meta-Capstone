@@ -27,26 +27,29 @@
   color: #ffffff;
 }
 
-.booking-tab--disabled {
-  background: transparent;
-  color: var(--primary-green);
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .booking-tab--active:hover,
 .booking-tab--active:focus-visible {
   background: #3d4d47;
 }
 
-.booking-tab-badge {
-  background: var(--primary-yellow);
+.booking-tab--with-badge {
+  position: relative;
+}
+
+.booking-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 4px;
+  background-color: var(--secondary-peach);
   color: var(--highlight-dark);
-  font-size: 0.65rem;
-  width: 16px;
-  height: 16px;
   border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
