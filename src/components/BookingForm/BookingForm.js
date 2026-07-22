@@ -94,11 +94,13 @@ function BookingForm({
           placeholder="Enter your full name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          aria-invalid={submitted && Boolean(errors.name)}
+          aria-describedby={submitted && errors.name ? 'res-name-error' : undefined}
           required
         />
 
         {submitted && errors.name && (
-          <p role="alert" className="booking-form-error">{errors.name}</p>
+          <p id="res-name-error" role="alert" className="booking-form-error">{errors.name}</p>
         )}
       </div>
 
@@ -115,11 +117,13 @@ function BookingForm({
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            aria-invalid={submitted && Boolean(errors.email)}
+            aria-describedby={submitted && errors.email ? 'res-email-error' : undefined}
             required
           />
 
           {submitted && errors.email && (
-            <p role="alert" className="booking-form-error">{errors.email}</p>
+            <p id="res-email-error" role="alert" className="booking-form-error">{errors.email}</p>
           )}
         </div>
 
@@ -142,11 +146,13 @@ function BookingForm({
             }}
             pattern="^\+?[\d\s\-()]{7,}$"
             title="Enter a valid phone number (digits, spaces, +, -, and parentheses only)"
+            aria-invalid={submitted && Boolean(errors.phone)}
+            aria-describedby={submitted && errors.phone ? 'res-phone-error' : undefined}
             required
           />
 
           {submitted && errors.phone && (
-            <p role="alert" className="booking-form-error">{errors.phone}</p>
+            <p id="res-phone-error" role="alert" className="booking-form-error">{errors.phone}</p>
           )}
         </div>
 
@@ -167,11 +173,13 @@ function BookingForm({
                 onDateChange(newDate);
               }
             }}
+            aria-invalid={submitted && Boolean(errors.date)}
+            aria-describedby={submitted && errors.date ? 'res-date-error' : undefined}
             required
           />
 
           {submitted && errors.date && (
-            <p role="alert" className="booking-form-error">{errors.date}</p>
+            <p id="res-date-error" role="alert" className="booking-form-error">{errors.date}</p>
           )}
         </div>
 
@@ -184,6 +192,8 @@ function BookingForm({
             id="res-time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
+            aria-invalid={submitted && Boolean(errors.time)}
+            aria-describedby={submitted && errors.time ? 'res-time-error' : undefined}
             required
           >
             <option value="" disabled>
@@ -198,7 +208,7 @@ function BookingForm({
           </select>
 
           {submitted && errors.time && (
-            <p role="alert" className="booking-form-error">{errors.time}</p>
+            <p id="res-time-error" role="alert" className="booking-form-error">{errors.time}</p>
           )}
         </div>
 
@@ -214,11 +224,13 @@ function BookingForm({
             max="10"
             value={guests}
             onChange={(e) => setGuests(Number(e.target.value))}
+            aria-invalid={submitted && Boolean(errors.guests)}
+            aria-describedby={submitted && errors.guests ? 'res-guests-error' : undefined}
             required
           />
 
           {submitted && errors.guests && (
-            <p role="alert" className="booking-form-error">{errors.guests}</p>
+            <p id="res-guests-error" role="alert" className="booking-form-error">{errors.guests}</p>
           )}
         </div>
 
@@ -287,10 +299,12 @@ function BookingForm({
           value={requests}
           onChange={(e) => setRequests(e.target.value)}
           rows={4}
+          aria-invalid={submitted && Boolean(errors.requests)}
+          aria-describedby={submitted && errors.requests ? 'res-requests-error' : undefined}
         />
 
         {submitted && errors.requests && (
-          <p role="alert" className="booking-form-error">{errors.requests}</p>
+          <p id="res-requests-error" role="alert" className="booking-form-error">{errors.requests}</p>
         )}
       </div>
 
