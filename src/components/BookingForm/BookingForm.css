@@ -140,7 +140,8 @@
 }
 
 .booking-form-error {
-  color: #b00020;
+  color: #c1121f;
   font-size: 0.875rem;
-  margin: -0.5rem 0 0;
+  margin-top: 0.35rem;
+  font-weight: 500;
 }
