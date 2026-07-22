@@ -28,7 +28,7 @@ export default function Main() {
           path="/reservations"
           element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} />}
         />
-        <Route path="/booking-confirmed" element={<ConfirmedBooking />} /> 
+        <Route path="/booking-confirmed" element={<ConfirmedBooking />} />
       </Routes>
     </main>
   );

@@ -3,7 +3,7 @@ import BookingForm from './BookingForm';
 
 const requiredProps = {
   availableTimes: ['17:00', '18:00', '19:00'],
-  onDateChange: () => {},
+  onDateChange: () => { },
   onSubmitReservation: () => true,
 };
 
@@ -17,7 +17,7 @@ test('renders the BookingForm heading', () => {
 test('renders the submit button', () => {
   render(<BookingForm {...requiredProps} />);
 
-   const submitButton = screen.getByRole('button', { name: /reserve a table/i });
+  const submitButton = screen.getByRole('button', { name: /reserve a table/i });
   expect(submitButton).toBeInTheDocument();
 });
 

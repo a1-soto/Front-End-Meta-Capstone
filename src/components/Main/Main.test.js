@@ -17,7 +17,6 @@ test('updateTimes returns a new array of times when the date changes', () => {
   expect(result.length).toBeGreaterThan(0);
 });
 
-
 test('updateTimes returns the same state for an unrecognized action type', () => {
   const state = ['17:00', '18:00'];
   const action = { type: 'unknown_action' };
