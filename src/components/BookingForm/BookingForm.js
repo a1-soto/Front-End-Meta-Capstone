@@ -28,28 +28,28 @@ function BookingForm({
   const [seating, setSeating] = useState('indoor');
   const [requests, setRequests] = useState('');
   const [submitError, setSubmitError] = useState('');
-  const [errors, setErrors] = useState({});
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const formData = {
+    name,
+    email,
+    phone,
+    date,
+    time,
+    guests,
+    occasion,
+    seating,
+    requests
+  };
+  const errors = validateForm(formData);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const formData = {
-      name,
-      email,
-      phone,
-      date,
-      time,
-      guests,
-      occasion,
-      seating,
-      requests
-    };
+    setSubmitted(true);
 
-    const validationErrors = validateForm(formData);
-
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
+    if (Object.keys(errors).length > 0) {
       return;
     }
 
@@ -97,8 +97,8 @@ function BookingForm({
           required
         />
 
-        {errors.name && (
-          <p className="booking-form-error">{errors.name}</p>
+        {submitted && errors.name && (
+          <p role="alert" className="booking-form-error">{errors.name}</p>
         )}
       </div>
 
@@ -118,8 +118,8 @@ function BookingForm({
             required
           />
 
-          {errors.email && (
-            <p className="booking-form-error">{errors.email}</p>
+          {submitted && errors.email && (
+            <p role="alert" className="booking-form-error">{errors.email}</p>
           )}
         </div>
 
@@ -145,8 +145,8 @@ function BookingForm({
             required
           />
 
-          {errors.phone && (
-            <p className="booking-form-error">{errors.phone}</p>
+          {submitted && errors.phone && (
+            <p role="alert" className="booking-form-error">{errors.phone}</p>
           )}
         </div>
 
@@ -170,8 +170,8 @@ function BookingForm({
             required
           />
 
-          {errors.date && (
-            <p className="booking-form-error">{errors.date}</p>
+          {submitted && errors.date && (
+            <p role="alert" className="booking-form-error">{errors.date}</p>
           )}
         </div>
 
@@ -197,8 +197,8 @@ function BookingForm({
             ))}
           </select>
 
-          {errors.time && (
-            <p className="booking-form-error">{errors.time}</p>
+          {submitted && errors.time && (
+            <p role="alert" className="booking-form-error">{errors.time}</p>
           )}
         </div>
 
@@ -217,8 +217,8 @@ function BookingForm({
             required
           />
 
-          {errors.guests && (
-            <p className="booking-form-error">{errors.guests}</p>
+          {submitted && errors.guests && (
+            <p role="alert" className="booking-form-error">{errors.guests}</p>
           )}
         </div>
 
@@ -289,8 +289,8 @@ function BookingForm({
           rows={4}
         />
 
-        {errors.requests && (
-          <p className="booking-form-error">{errors.requests}</p>
+        {submitted && errors.requests && (
+          <p role="alert" className="booking-form-error">{errors.requests}</p>
         )}
       </div>
 
@@ -307,7 +307,7 @@ function BookingForm({
         type="submit"
         value="Reserve a Table"
         className="booking-submit-btn"
-        disabled={Object.keys(errors).length > 0}
+        disabled={submitted && Object.keys(errors).length > 0}
       />
     </form>
   );
