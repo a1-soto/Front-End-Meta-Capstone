@@ -19,6 +19,16 @@ export function validateForm(formData) {
 
   if (!formData.date) {
     errors.date = "Date is required";
+  } else {
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const chosenDate = new Date(`${formData.date}T00:00:00`);
+
+    if (chosenDate < today) {
+      errors.date = "Please choose a date from today onward";
+    }
   }
 
   if (!formData.time) {
