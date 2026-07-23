@@ -84,3 +84,45 @@ nav a:focus-visible::after {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--highlight-dark);
+  padding: 4px;
+  line-height: 0;
+}
+
+/* ============================================
+   MOBILE + TABLET (hasta 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: absolute;   /* de vuelta a absolute — ya no hace falta "fixed" */
+    top: 100%;             /* ahora es 100% de .navbar (el ancestro posicionado), no del viewport */
+    right: 0;
+    left: auto;
+    width: 25%;
+    background-color: var(--highlight-light);
+    padding: 20px;
+    border-radius: 0 0 0 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+}
