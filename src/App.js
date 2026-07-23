@@ -22,6 +22,7 @@ function App() {
           opacity: 1,
           duration: 0.7,
           ease: "power2.out",
+             clearProps: "transform",
         }
       );
     },
