@@ -173,3 +173,12 @@ footer a:active,
   font-weight: 400;
   opacity: 0.85;
 }
+
+/* ============================================
+   TABLET (601px – 1024px)
+   ============================================ */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .footer-brand img {
+    height: 48px;
+  }
+}

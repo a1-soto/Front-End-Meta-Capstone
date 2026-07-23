@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../../assets/images/logo.jpg";
+import logoIcon from "../../assets/images/logo-icon.png";
 
 import { useRef, useState } from "react";
 import { useGsapMatchMedia } from "../../hooks/useGsapMatchMedia";
@@ -63,7 +63,7 @@ function Footer() {
 
                 <div className="footer-brand">
                     <Link to="/" aria-label="Little Lemon home">
-                        <img src={logo} alt="Little Lemon logo" />
+                        <img src={logoIcon} alt="" />
                     </Link>
                 </div>
 
