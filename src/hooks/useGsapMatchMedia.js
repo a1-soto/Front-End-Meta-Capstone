@@ -24,6 +24,24 @@ export function useGsapMatchMedia(scopeRef, animate, deps = []) {
 
         }, scopeRef);
 
-        return () => animationContext.revert();
+        function handleWindowLoad() {
+            ScrollTrigger.refresh();
+        }
+
+        window.addEventListener('load', handleWindowLoad);
+
+        if (document.readyState === 'complete') {
+            ScrollTrigger.refresh();
+        }
+
+        document.fonts.ready.then(() => {
+            ScrollTrigger.refresh();
+        });
+
+        return () => {
+            animationContext.revert();
+            window.removeEventListener('load', handleWindowLoad);
+        };
+ // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);
 }
