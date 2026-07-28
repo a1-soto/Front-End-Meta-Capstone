@@ -3,7 +3,7 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 2.5rem;
-  background: #ffffff;
+  background: var(--card-white);
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: grid;

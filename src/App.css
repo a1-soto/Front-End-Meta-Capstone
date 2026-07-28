@@ -11,6 +11,8 @@
   --highlight-light: #EDEFEE;
   --highlight-dark: #333333;
 
+   --card-white: #ffffff;
+
   /* ===== Layout ===== */
   --container-width: 1200px;
   --section-spacing: 5rem;

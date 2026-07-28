@@ -50,3 +50,14 @@
   margin: 0;
   max-width: 500px;
 }
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .booking-hero {
+    height: 260px;
+  }
+
+  .booking-page .container {
+    width: min(var(--container-width), calc(100% - 4rem));
+  }
+}

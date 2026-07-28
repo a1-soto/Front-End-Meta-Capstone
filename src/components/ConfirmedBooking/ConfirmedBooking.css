@@ -55,7 +55,7 @@
 
 /* ===== RESERVATION CARD ===== */
 .confirmation-card {
-  background: #ffffff;
+  background: var(--card-white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -157,7 +157,7 @@
 
 /* ===== "WHAT'S NEXT" ===== */
 .confirmation-next-steps {
-  background-color: #ffffff;
+  background-color: var(--card-white);
   border: 1px solid var(--highlight-light);
   border-radius: 12px;
   padding: 2rem;

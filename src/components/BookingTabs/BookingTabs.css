@@ -26,7 +26,7 @@
 
 .booking-tab--active {
   background: var(--primary-green);
-  color: #ffffff;
+  color: var(--card-white);
 }
 
 .booking-tab--active:hover,
@@ -55,3 +55,4 @@
   justify-content: center;
   line-height: 1;
 }
+

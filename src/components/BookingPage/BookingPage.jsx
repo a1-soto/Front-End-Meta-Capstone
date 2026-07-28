@@ -43,15 +43,18 @@ function BookingPage({ availableTimes, dispatch }) {
 
       <BookingTabs activeTab={activeTab} onTabChange={setActiveTab} bookingCount={bookingCount} />
 
-      {activeTab === 'book' ? (
-        <BookingForm
-          availableTimes={availableTimes}
-          onDateChange={handleDateChange}
-          onSubmitReservation={handleSubmit}
-        />
-      ) : (
-        <MyBookings />
-      )}
+      <div className="container">
+        {activeTab === 'book' ? (
+          <BookingForm
+            availableTimes={availableTimes}
+            onDateChange={handleDateChange}
+            onSubmitReservation={handleSubmit}
+          />
+        ) : (
+          <MyBookings />
+        )}
+      </div>
+
     </section>
   );
 }
