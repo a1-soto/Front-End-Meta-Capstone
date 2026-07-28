@@ -1,7 +1,4 @@
-/* ===========================
-   CALL TO ACTION
-=========================== */
-/* ===== HERO ===== */
+/* ========  CALL TO ACTION / HERO ===== */
 
 .hero {
   background-color: var(--primary-green);
@@ -115,4 +112,34 @@
 .hero-card blockquote {
   margin: 0;
   padding: 0;
+}
+
+/* ===== RESPONSIVE — MOBILE ===== */
+@media (max-width: 600px) {
+
+  .hero .container {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+  }
+
+  .hero-text {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .hero-image {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .hero-image img {
+    height: 320px;
+    max-width: 100%;
+  }
+
+  .hero-card {
+    bottom: -20px;
+  }
 }

@@ -1,9 +1,11 @@
+/* === CONFIRMED BOOKING ===*/
+
 .confirmed-booking {
   padding: 4rem 0 5rem;
   background-color: var(--highlight-light);
 }
 
-/* ===== Encabezado ===== */
+/* ===== HEADER ===== */
 .confirmation-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -36,7 +38,7 @@
   color: var(--highlight-dark);
 }
 
-/* ===== Grid: tarjeta + what's next ===== */
+/* ===== GRID CARD ===== */
 .confirmation-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -51,7 +53,7 @@
   }
 }
 
-/* ===== Tarjeta de reserva ===== */
+/* ===== RESERVATION CARD ===== */
 .confirmation-card {
   background: #ffffff;
   border-radius: 12px;
@@ -108,7 +110,7 @@
   border-top: 1px solid var(--highlight-light);
 }
 
-/* ===== Botones ===== */
+/* ===== BUTTON ===== */
 .confirmation-btn {
   display: inline-block;
   text-align: center;
@@ -153,7 +155,7 @@
   color: var(--highlight-dark);
 }
 
-/* ===== Panel "What's Next" ===== */
+/* ===== "WHAT'S NEXT" ===== */
 .confirmation-next-steps {
   background-color: #ffffff;
   border: 1px solid var(--highlight-light);
@@ -199,7 +201,7 @@
   color: var(--highlight-dark);
 }
 
-/* ===== Banner inferior "Find Us Easily" ===== */
+/* ===== INTERIOR BANNER "Find Us Easily" ===== */
 .confirmation-location-banner {
   background-color: var(--primary-green);
   border-radius: 12px;

@@ -1,10 +1,7 @@
-/* ===========================
-   SPECIALS
-=========================== */
+/* === SPECIALS === */
 
 .specials {
   padding: 5rem 0;
-/*   background-color: var(--highlight-light); */
 }
 
 .specials .container {
@@ -51,4 +48,11 @@
 .specials-grid {
   display: flex;
   gap: 2rem;
+}
+
+/* ====== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .specials-grid {
+    gap: 1rem;
+  }
 }

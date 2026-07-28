@@ -1,3 +1,5 @@
+/* === NAV === */
+
 nav ul {
   display: flex;
   align-items: center;
@@ -96,33 +98,32 @@ nav a:focus-visible::after {
   line-height: 0;
 }
 
-/* ============================================
-   MOBILE + TABLET (hasta 1024px)
-   ============================================ */
+/* === RESPONSIVE MOBILE + TABLET === */
 @media (max-width: 1024px) {
   .nav-toggle {
     display: block;
     margin-left: auto;
   }
 
-  nav ul {
+  .navbar nav ul {
     display: none;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    position: absolute;   /* de vuelta a absolute — ya no hace falta "fixed" */
-    top: 100%;             /* ahora es 100% de .navbar (el ancestro posicionado), no del viewport */
+    position: absolute;
+    top: 100%;
     right: 0;
     left: auto;
-    width: 25%;
+    width: 280px;
+    max-width: 80vw;
     background-color: var(--highlight-light);
     padding: 20px;
     border-radius: 0 0 0 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
   }
 
-  nav ul.open {
+  .navbar nav ul.open {
     display: flex;
   }
 }

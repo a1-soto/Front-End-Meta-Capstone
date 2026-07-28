@@ -1,11 +1,9 @@
-/* ===========================
-   CARD
-=========================== */
+/* === CARD === */
 
 .card {
   flex: 0 0 480px;
   scroll-snap-align: start;
-   background-color:var(--highlight-light) ;
+  background-color: var(--highlight-light);
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
@@ -93,4 +91,25 @@
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+}
+
+/* ====== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 340px;
+  }
+
+  .card-image-wrapper img {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 260px;
+  }
+
+  .card-image-wrapper img {
+    height: 280px;
+  }
 }

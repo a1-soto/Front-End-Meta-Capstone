@@ -1,6 +1,4 @@
-/* ===========================
-   CSS VARIABLES
-=========================== */
+/* ==== CSS VARIABLES ==== */
 
 :root {
   /* ===== Colors ===== */
@@ -18,9 +16,7 @@
   --section-spacing: 5rem;
 }
 
-/* ===========================
-   GLOBAL
-=========================== */
+/* ==== GLOBAL ==== */
 
 * {
   box-sizing: border-box;
@@ -30,18 +26,14 @@ body {
   margin: 0;
 }
 
-/* ===========================
-   LAYOUT
-=========================== */
+/* === LAYOUT === */
 
 .container {
   width: min(var(--container-width), calc(100% - 4rem));
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
-/* ===========================
-   TYPOGRAPHY
-=========================== */
+/* === TYPOGRAPHY === */
 
 h1,
 h2,
@@ -77,9 +69,7 @@ p {
   line-height: 1.5;
 }
 
-/* ===========================
-   IMAGES
-=========================== */
+/* ==== IMAGES === */
 
 img {
   display: block;
@@ -91,9 +81,7 @@ img {
   border-radius: 8px;
 }
 
-/* ===========================
-   NAVBAR LAYOUT
-=========================== */
+/* === NAVBAR LAYOUT === */
 
 .navbar {
   background-color: var(--highlight-light);
@@ -114,4 +102,17 @@ img {
 :focus-visible {
   outline: 3px solid var(--primary-yellow);
   outline-offset: 2px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .container {
+    width: min(var(--container-width), calc(100% - 5rem));
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: min(var(--container-width), calc(100% - 6rem));
+  }
 }

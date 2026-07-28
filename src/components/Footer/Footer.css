@@ -1,6 +1,4 @@
-/* ===========================
-   FOOTER
-=========================== */
+/* === FOOTER ==== */
 
 footer {
   background-color: var(--primary-green);
@@ -174,11 +172,69 @@ footer a:active,
   opacity: 0.85;
 }
 
-/* ============================================
-   TABLET (601px – 1024px)
-   ============================================ */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .footer-brand img {
-    height: 48px;
+/* ==== RESPONSIVE === */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 2rem;
   }
-}
+
+  .footer-brand,
+  .footer-content>.footer-column:first-of-type {
+    width: auto;
+  }
+
+  .footer-content>.footer-column:not(:first-of-type) {
+    flex-basis: 100%;
+  }
+
+    .footer-brand img {
+      height: 56px;
+    }
+
+    .footer-column {
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    footer .footer-column ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem 1.5rem;
+    }
+
+    footer address {
+      flex-direction: row;
+      /* Cambia de columna a fila */
+      flex-wrap: wrap;
+      /* Permite pasar a una segunda línea */
+      justify-content: center;
+      /* Centra el par Chicago/teléfono en su línea */
+      gap: .5rem 1.5rem;
+      /* Espacio vertical .5rem, horizontal 1.5rem */
+    }
+
+    footer address p:nth-child(3) {
+      flex-basis: 100%;
+      /* Fuerza al 3er párrafo (email) a ocupar toda la línea, empujándolo a su propia fila */
+      justify-content: center;
+      /* Centra el ícono + texto del email dentro de esa línea completa */
+    }
+
+    .footer-social {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .footer-brand img {
+      height: 48px;
+    }
+  }

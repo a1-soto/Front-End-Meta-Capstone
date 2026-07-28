@@ -1,6 +1,4 @@
-/* ===========================
-   CHICAGO SECTION
-=========================== */
+/* ==== CHICAGO SECTION === */
 
 .chicago {
     padding: var(--section-spacing) 0;
@@ -93,9 +91,7 @@
     line-height: 1.5;
 }
 
-
 /* ===== RESPONSIVE ===== */
-
 @media (max-width: 768px) {
 
     .chicago-container {

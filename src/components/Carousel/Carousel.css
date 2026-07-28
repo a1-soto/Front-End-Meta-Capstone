@@ -1,3 +1,5 @@
+/* === CAROUSEL === */
+
 .carousel {
   position: relative;
 }
@@ -76,7 +78,7 @@
   height: 0;
 }
 
-/* ===== BARRA DE PROGRESO CON LIMÓN ===== */
+/* ===== PROGRESS LEMON BAR ===== */
 
 .carousel-progress {
   width: 100%;

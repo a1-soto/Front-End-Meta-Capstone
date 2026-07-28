@@ -1,3 +1,5 @@
+/* === HEADER === */
+
 header {
   padding: 0;
 }
@@ -23,18 +25,14 @@ header a {
   width: auto;
 }
 
-/* ============================================
-   MOBILE (hasta 600px)
-   ============================================ */
+/* ========  RESPONSIVE MOBILE  ========= */
 @media (max-width: 600px) {
   .logo-text {
     display: none;
   }
 }
 
-/* ============================================
-   TABLET (601px – 1024px)
-   ============================================ */
+/*=====  RESPONSIVE TABLET (601px – 1024px) ===== */
 @media (min-width: 601px) and (max-width: 1024px) {
   .logo-icon {
     height: 48px;
