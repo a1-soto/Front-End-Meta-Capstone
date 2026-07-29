@@ -9,9 +9,8 @@ test("renders the Little Lemon navbar logo", () => {
     </MemoryRouter>
   );
 
-  const logoElements = screen.getAllByAltText("Little Lemon logo");
-
-  expect(logoElements.length).toBeGreaterThan(0);
+  const logoLinks = screen.getAllByRole("link", { name: "Little Lemon home" });
+  expect(logoLinks.length).toBeGreaterThan(0);
 });
 
 test("renders the hero heading", () => {
