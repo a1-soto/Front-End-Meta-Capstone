@@ -1,9 +1,10 @@
 import "./Footer.css";
 import logoIcon from "../../assets/images/logo-icon.png";
+import { navLinks } from "../../constants/navigation";
 
 import { useRef, useState } from "react";
 import { useGsapMatchMedia } from "../../hooks/useGsapMatchMedia";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // useLocation: para saber si ya estamos en Home
 
 import { MdLocationOn, MdPhone, MdEmail, MdShare } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
@@ -11,6 +12,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 function Footer() {
     const footerRef = useRef(null);
     const [linkCopied, setLinkCopied] = useState(false);
+    const routerLocation = useLocation();
 
     useGsapMatchMedia(
         footerRef,
@@ -57,6 +59,19 @@ function Footer() {
         }
     }
 
+    function handleAnchorClick(e, path) {
+        if (!path.includes("#")) return;
+
+        const id = path.split("#")[1];
+
+        if (routerLocation.pathname === "/") {
+            e.preventDefault();
+            requestAnimationFrame(() => {
+                document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+            });
+        }
+    }
+
     return (
         <footer ref={footerRef}>
             <div className="container footer-content" data-animate="true">
@@ -71,10 +86,22 @@ function Footer() {
                     <h3>Quick Links</h3>
                     <nav aria-label="Footer navigation">
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/#about">About</Link></li>
-                            <li><Link to="/#menu">Menu</Link></li>
-                            <li><Link to="/reservations">Reservations</Link></li>
+                            {navLinks.map((link) => (
+                                <li key={link.label}>
+                                    {link.disabled ? (
+                                        <span className="footer-link-disabled" aria-disabled="true" title="Coming soon">
+                                            {link.label}
+                                        </span>
+                                    ) : (
+                                        <Link
+                                            to={link.path}
+                                            onClick={(e) => handleAnchorClick(e, link.path)}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
                     </nav>
                 </div>
@@ -141,7 +168,7 @@ function Footer() {
                     <p>Designed &amp; developed as part of the Meta Front-End Developer Capstone.</p>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }
 
