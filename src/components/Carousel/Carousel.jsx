@@ -45,6 +45,47 @@ export default function Carousel({ children }) {
         return trackRef.current.offsetWidth - LEMON_SIZE;
     }
 
+    function getMaxScroll() {
+        const container = scrollRef.current;
+        return container.scrollWidth - container.clientWidth;
+    }
+
+    function startEasingLoop() {
+
+        if (rafId.current) return;
+
+        function animate() {
+
+            const container = scrollRef.current;
+            if (!container) return;
+
+            isAnimating.current = true;
+
+            const current = container.scrollLeft;
+            const target = targetScroll.current;
+            const diff = target - current;
+
+            if (Math.abs(diff) < STOP_THRESHOLD) {
+                container.scrollLeft = target;
+                isAnimating.current = false;
+                rafId.current = null;
+                return;
+            }
+
+            container.scrollLeft = current + diff * EASE_FACTOR;
+
+            rafId.current = requestAnimationFrame(animate);
+        }
+
+        rafId.current = requestAnimationFrame(animate);
+    }
+
+    function setClampedTarget(value) {
+        const maxScroll = getMaxScroll();
+        targetScroll.current = Math.max(0, Math.min(maxScroll, value));
+        startEasingLoop();
+    }
+
     useEffect(() => {
 
         const container = scrollRef.current;
@@ -82,44 +123,8 @@ export default function Carousel({ children }) {
 
     }, []);
 
-    function startEasingLoop() {
-
-        if (rafId.current) return;
-
-        function animate() {
-
-            const container = scrollRef.current;
-            if (!container) return;
-
-            isAnimating.current = true;
-
-            const current = container.scrollLeft;
-            const target = targetScroll.current;
-            const diff = target - current;
-
-            if (Math.abs(diff) < STOP_THRESHOLD) {
-                container.scrollLeft = target;
-                isAnimating.current = false;
-                rafId.current = null;
-                return;
-            }
-
-            container.scrollLeft = current + diff * EASE_FACTOR;
-
-            rafId.current = requestAnimationFrame(animate);
-        }
-
-        rafId.current = requestAnimationFrame(animate);
-    }
-
-    function getMaxScroll() {
-        const container = scrollRef.current;
-        return container.scrollWidth - container.clientWidth;
-    }
-
     function handleMouseDown(e) {
         e.preventDefault();
-
 
         scrollRef.current.focus();
 
@@ -134,16 +139,10 @@ export default function Carousel({ children }) {
     function handleMouseMove(e) {
         if (!isDraggingRef.current) return;
 
-        const maxScroll = getMaxScroll();
-
         const distance = e.pageX - drag.current.startX;
         drag.current.distance = Math.abs(distance);
 
-        let newTarget = drag.current.startTarget - distance;
-        newTarget = Math.max(0, Math.min(maxScroll, newTarget));
-
-        targetScroll.current = newTarget;
-        startEasingLoop();
+        setClampedTarget(drag.current.startTarget - distance);
     }
 
     function handleMouseUp(e) {
@@ -176,57 +175,41 @@ export default function Carousel({ children }) {
 
         if (e.target.closest(".carousel-progress-lemon")) return;
 
-        const maxScroll = getMaxScroll();
         const track = trackRef.current;
-
         const trackRect = track.getBoundingClientRect();
         const clickX = e.clientX - trackRect.left;
 
         const travel = getTrackTravel();
-
         const adjustedClickX = clickX - LEMON_SIZE / 2;
         const clampedX = Math.max(0, Math.min(travel, adjustedClickX));
         const progress = travel > 0 ? clampedX / travel : 0;
 
-        const newTarget = progress * maxScroll;
-
-        targetScroll.current = newTarget;
-        startEasingLoop();
+        setClampedTarget(progress * getMaxScroll());
     }
 
     function handleKeyDown(e) {
-        const maxScroll = getMaxScroll();
         const step = 300;
 
         if (e.key === "ArrowRight") {
             e.preventDefault();
-            targetScroll.current = Math.min(maxScroll, targetScroll.current + step);
-            startEasingLoop();
+            setClampedTarget(targetScroll.current + step);
         } else if (e.key === "ArrowLeft") {
             e.preventDefault();
-            targetScroll.current = Math.max(0, targetScroll.current - step);
-            startEasingLoop();
+            setClampedTarget(targetScroll.current - step);
         }
     }
-
     useEffect(() => {
 
         if (!isLemonDragging) return;
 
         function handleWindowMouseMove(e) {
-            const maxScroll = getMaxScroll();
-
-
             const travel = getTrackTravel();
+            const maxScroll = getMaxScroll();
 
             const deltaPx = e.pageX - lemonDrag.current.startX;
             const scrollDelta = travel > 0 ? (deltaPx / travel) * maxScroll : 0;
 
-            let newTarget = lemonDrag.current.startTarget + scrollDelta;
-            newTarget = Math.max(0, Math.min(maxScroll, newTarget));
-
-            targetScroll.current = newTarget;
-            startEasingLoop();
+            setClampedTarget(lemonDrag.current.startTarget + scrollDelta);
         }
 
         function handleWindowMouseUp() {
@@ -242,6 +225,12 @@ export default function Carousel({ children }) {
             window.removeEventListener("mouseup", handleWindowMouseUp);
         };
 
+        // setClampedTarget is recreated on every render (it's defined inside
+        // the component), but this effect should only react to changes in
+        // isLemonDragging — including it as a dependency would cause the
+        // effect to restart on every render, breaking its purpose of listening
+        // to the global mouse drag.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLemonDragging]);
 
     return (
