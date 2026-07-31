@@ -7,7 +7,7 @@ import { navLinks } from "../../constants/navigation";
 function Nav() {
     const cartCount = 0;
     const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
+   /*  const location = useLocation(); */   const routerLocation = useLocation();
 
     function closeMenu() {
         setIsOpen(false);
@@ -18,14 +18,13 @@ function Nav() {
 
         const id = path.split("#")[1];
 
-        if (location.pathname === "/") {
+        if (routerLocation.pathname === "/") {
             e.preventDefault();
             closeMenu();
             requestAnimationFrame(() => {
                 document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
             });
         }
-
     }
 
     return (
@@ -53,8 +52,8 @@ function Nav() {
                             <Link
                                 to={link.path}
                                 onClick={(e) => {
-                                    handleAnchorClick(e, link.path); // maneja el caso de ancla
-                                    closeMenu(); // siempre cierra el menú mobile, sea ancla o no
+                                    handleAnchorClick(e, link.path);
+                                    closeMenu();
                                 }}
                             >
                                 {link.label}

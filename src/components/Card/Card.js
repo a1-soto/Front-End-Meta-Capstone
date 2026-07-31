@@ -29,7 +29,7 @@ const Card = forwardRef(function Card(
 
         <div className="card-header">
           <h3>{title}</h3>
-             </div>
+        </div>
 
         <p>{description}</p>
 

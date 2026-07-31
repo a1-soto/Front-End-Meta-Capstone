@@ -25,7 +25,6 @@ export default function Chicago() {
   const sectionRef = useRef(null);
   const mainImageRef = useRef(null);
   const secondaryImageRef = useRef(null);
-
   useGsapMatchMedia(
     sectionRef,
     (gsap, ScrollTrigger) => {
@@ -58,11 +57,6 @@ export default function Chicago() {
       breakpoint.add("(max-width: 768px)", () => {
         gsap.set([mainImageRef.current, secondaryImageRef.current], { y: 0 });
       });
-
-      const handleResize = () => ScrollTrigger.refresh();
-      window.addEventListener("resize", handleResize);
-
-      return () => window.removeEventListener("resize", handleResize);
     },
     []
   );
@@ -106,6 +100,6 @@ export default function Chicago() {
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }
