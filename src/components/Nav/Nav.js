@@ -7,8 +7,7 @@ import { navLinks } from "../../constants/navigation";
 function Nav() {
     const cartCount = 0;
     const [isOpen, setIsOpen] = useState(false);
-   /*  const location = useLocation(); */   const routerLocation = useLocation();
-
+    const routerLocation = useLocation();
     function closeMenu() {
         setIsOpen(false);
     }

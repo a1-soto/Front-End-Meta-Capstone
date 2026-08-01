@@ -42,7 +42,7 @@ function BookingForm({
     seating,
     requests
   };
-  const errors = validateForm(formData);
+  const errors = validateForm(formData, availableTimes);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -168,6 +168,8 @@ function BookingForm({
             onChange={(e) => {
               const newDate = e.target.value;
               setDate(newDate);
+
+                          setTime('');
 
               if (onDateChange) {
                 onDateChange(newDate);

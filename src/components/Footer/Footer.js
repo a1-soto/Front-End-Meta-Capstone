@@ -4,8 +4,7 @@ import { navLinks } from "../../constants/navigation";
 
 import { useRef, useState } from "react";
 import { useGsapMatchMedia } from "../../hooks/useGsapMatchMedia";
-import { Link, useLocation } from "react-router-dom"; // useLocation: para saber si ya estamos en Home
-
+import { Link, useLocation } from "react-router-dom";
 import { MdLocationOn, MdPhone, MdEmail, MdShare } from "react-icons/md";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
@@ -168,7 +167,7 @@ function Footer() {
                     <p>Designed &amp; developed as part of the Meta Front-End Developer Capstone.</p>
                 </div>
             </div>
-        </footer >
+        </footer>
     );
 }
 

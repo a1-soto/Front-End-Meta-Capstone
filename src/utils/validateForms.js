@@ -1,4 +1,4 @@
-export function validateForm(formData) {
+export function validateForm(formData, availableTimes) {
   const errors = {};
 
   if (!formData.name.trim()) {
@@ -33,6 +33,11 @@ export function validateForm(formData) {
 
   if (!formData.time) {
     errors.time = "Time is required";
+  } else if (
+    Array.isArray(availableTimes) &&
+    !availableTimes.includes(formData.time)
+  ) {
+    errors.time = "Please choose a time from the current availability";
   }
 
   if (formData.guests < 1 || formData.guests > 10) {

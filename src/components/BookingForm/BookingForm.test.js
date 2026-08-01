@@ -34,7 +34,7 @@ const validData = {
   name: 'Jane Doe',
   email: 'jane@example.com',
   phone: '+1 555 000 0000',
-  date: '2099-01-01', // fecha muy en el futuro, siempre válida para el test
+  date: '2099-01-01',
   time: '18:00',
   guests: 2,
   occasion: '',
@@ -70,6 +70,12 @@ test('validateForm flags an empty required field (name)', () => {
 test('validateForm flags a malformed email', () => {
   const errors = validateForm({ ...validData, email: 'not-an-email' });
   expect(errors.email).toBe('Invalid email address');
+});
+
+test('validateForm flags a time that is no longer in availableTimes', () => {
+  const availableTimesForNewDate = ['12:00', '13:00'];
+  const errors = validateForm(validData, availableTimesForNewDate);
+  expect(errors.time).toBe('Please choose a time from the current availability');
 });
 
 test('submit button re-enables after fixing an invalid field (no lockout)', () => {

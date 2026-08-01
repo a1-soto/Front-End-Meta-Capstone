@@ -21,6 +21,7 @@ function BookingPage({ availableTimes, dispatch }) {
       setActiveTab(location.state.tab);
       navigate(location.pathname, { replace: true, state: {} }); // limpia el state del historial
     }
+
   }, []);
 
 
