@@ -21,7 +21,12 @@ function BookingPage({ availableTimes, dispatch }) {
       setActiveTab(location.state.tab);
       navigate(location.pathname, { replace: true, state: {} }); // limpia el state del historial
     }
-
+   // Empty deps on purpose: this effect should run ONLY on mount (read the
+    // "tab" that came from ConfirmedBooking a single time). If we added
+    // location/navigate as dependencies, the effect would re-run every time
+    // it calls navigate(...) itself, creating an unnecessary loop. Same
+    // reasoning already documented in useGsapMatchMedia.js.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

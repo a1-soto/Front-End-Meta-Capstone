@@ -169,7 +169,7 @@ function BookingForm({
               const newDate = e.target.value;
               setDate(newDate);
 
-                          setTime('');
+              setTime('');
 
               if (onDateChange) {
                 onDateChange(newDate);
@@ -225,7 +225,17 @@ function BookingForm({
             min="1"
             max="10"
             value={guests}
-            onChange={(e) => setGuests(Number(e.target.value))}
+            onChange={(e) => {
+              const raw = e.target.value;
+               // If the user cleared the whole field (raw === ''), we store
+              // '' instead of forcing 0. This avoids the "Guests must be
+              // between 1 and 10" error flashing for a moment right while
+              // the user is clearing the field to type a new number.
+              // validateForm already treats an empty string as guests < 1,
+              // so submit stays blocked if the user tries to submit without
+              // typing a number back in.
+              setGuests(raw === '' ? '' : Number(raw));
+            }}
             aria-invalid={submitted && Boolean(errors.guests)}
             aria-describedby={submitted && errors.guests ? 'res-guests-error' : undefined}
             required
