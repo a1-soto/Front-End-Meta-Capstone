@@ -4,8 +4,6 @@ A responsive restaurant website built for the Meta Front-End Developer Professio
 Certificate Capstone, featuring semantic HTML, a fully validated booking flow, scroll-based
 animations, and WCAG-conscious accessibility.
 
-[SCREENSHOT: Full homepage hero section, desktop view]
-
 ---
 
 ## The Problem
@@ -38,8 +36,6 @@ three deliberate decisions based on each section's actual content, not an incons
 than local `useState` inside the form) so the reservation date can drive which time slots
 are fetched, matching the course's lifting-state-up pattern.
 
-[SCREENSHOT: Reservation form, desktop view]
-
 ## Features
 
 - Semantic HTML throughout (`header`, `nav`, `main`, `footer`, `address`)
@@ -55,8 +51,6 @@ are fetched, matching the course's lifting-state-up pattern.
 - Responsive layout verified at mobile, tablet, and desktop breakpoints
 - 15 automated tests (Jest + React Testing Library) covering rendering, the booking
   reducer, and form validation edge cases
-
-[SCREENSHOT: Mobile view of homepage, showing hamburger menu]
 
 ## Tech Stack
 
@@ -111,8 +105,6 @@ online, Shopping cart, Login, and View Menu. These are visibly present in the UI
 "Coming soon" tooltip) rather than hidden, but link to no page — there was no menu-ordering
 or account system in the assignment brief, so building one would have added risk without
 adding rubric value.
-
-[SCREENSHOT: Footer showing disabled links state]
 
 ## Project Structure
 
