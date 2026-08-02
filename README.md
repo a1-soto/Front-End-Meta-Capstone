@@ -49,7 +49,7 @@ are fetched, matching the course's lifting-state-up pattern.
   `aria-roledescription="carousel"`) alongside mouse/touch drag
 - `aria-invalid` / `aria-describedby` linking every validated field to its error message
 - Responsive layout verified at mobile, tablet, and desktop breakpoints
-- 15 automated tests (Jest + React Testing Library) covering rendering, the booking
+- 16 automated tests (Jest + React Testing Library) covering rendering, the booking
   reducer, and form validation edge cases
 
 ## Tech Stack
