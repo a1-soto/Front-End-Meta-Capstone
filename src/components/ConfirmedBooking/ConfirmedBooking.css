@@ -206,16 +206,6 @@
   background-color: var(--primary-green);
   border-radius: 12px;
   padding: 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .confirmation-location-banner {
-    grid-template-columns: 1fr;
-  }
 }
 
 .confirmation-location-text h2 {
@@ -230,10 +220,4 @@
 
 .confirmation-location-text .confirmation-btn {
   margin-top: 1rem;
-}
-
-.confirmation-map-placeholder {
-  background-color: var(--highlight-light);
-  border-radius: 8px;
-  min-height: 220px;
 }

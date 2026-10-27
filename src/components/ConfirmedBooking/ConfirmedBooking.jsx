@@ -146,20 +146,15 @@ function ConfirmedBooking() {
             <p>123 Mediterranean Way, Chicago, IL</p>
             <p>Need to change your plans? Call us at (555) 123-4567.</p>
             <a
-              href="https://maps.google.com"
+              href="https://www.google.com/maps/search/?api=1&query=123+Mediterranean+Way+Chicago+IL"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Get directions on Google Maps (opens in a new tab)"
               className="confirmation-btn confirmation-btn--primary"
             >
               Get Directions
             </a>
           </div>
-
-          <div
-            className="confirmation-map-placeholder"
-            role="img"
-            aria-label="Map showing Little Lemon's location"
-          />
         </div>
 
       </div>
