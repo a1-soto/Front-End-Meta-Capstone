@@ -1,4 +1,4 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, Navigate } from 'react-router-dom';
 import {
   MdCheckCircle,
   MdInfoOutline,
@@ -13,6 +13,12 @@ import './ConfirmedBooking.css';
 function ConfirmedBooking() {
   const location = useLocation();
   const formData = location.state;
+
+  // Direct visits have no booking to show
+  if (!formData) {
+    return <Navigate to="/reservations" replace />;
+  }
+
   const {
     name = 'Guest',
     date = '',
