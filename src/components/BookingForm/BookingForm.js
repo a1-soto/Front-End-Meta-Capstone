@@ -144,7 +144,7 @@ function BookingForm({
               );
               setPhone(filtered);
             }}
-            pattern="^\+?[\d\s\-()]{7,}$"
+            pattern="^\+?[\d\s\-\(\)]{7,}$"
             title="Enter a valid phone number (digits, spaces, +, -, and parentheses only)"
             aria-invalid={submitted && Boolean(errors.phone)}
             aria-describedby={submitted && errors.phone ? 'res-phone-error' : undefined}
