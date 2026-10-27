@@ -1,5 +1,7 @@
 # Little Lemon — Restaurant Reservations App
 
+**Live demo:** https://little-lemon-ten-snowy.vercel.app
+
 A responsive restaurant website built for the Meta Front-End Developer Professional
 Certificate Capstone, featuring semantic HTML, a fully validated booking flow, scroll-based
 animations, and WCAG-conscious accessibility.
@@ -86,15 +88,11 @@ This project targets **WCAG 2.1 AA**. It was verified through:
   on validated fields
 - Keyboard support on the custom carousel (arrow keys, visible focus, `tabIndex`)
 - Motion respecting `prefers-reduced-motion` across every animation in the app
-
-> Note: full manual keyboard-navigation testing (Tab key) was affected by a system-level
-> input issue unrelated to this codebase during development. The carousel's keyboard
-> support (`tabIndex`, arrow key handlers, ARIA attributes) is implemented and was verified
-> through code review rather than a live Tab-key walkthrough.
+- Keyboard walkthrough on the live demo (Tab, Enter, arrow keys) at mobile and desktop sizes
 
 ## What Works Today / What's Out of Scope
 
-Being upfront about scope, following a pattern seen across other Capstone submissions:
+Being upfront about scope:
 
 **Fully functional:** Home navigation, the About and Menu anchor links, the reservation
 form (validation, time-slot fetching, submission, confirmation), booking history, and the
