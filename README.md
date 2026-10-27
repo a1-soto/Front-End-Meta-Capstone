@@ -1,6 +1,6 @@
 # Little Lemon — Restaurant Reservations App
 
-**Live demo:** https://little-lemon-ten-snowy.vercel.app
+**Live demo:** https://little-lemon-a1soto.vercel.app
 
 A responsive restaurant website built for the Meta Front-End Developer Professional
 Certificate Capstone, featuring semantic HTML, a fully validated booking flow, scroll-based
